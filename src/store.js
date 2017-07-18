@@ -20,4 +20,6 @@ const createStore = (initialState = {}) => {
   return store;
 };
 
-export default createStore;
+const store = createStore();
+
+export default store;

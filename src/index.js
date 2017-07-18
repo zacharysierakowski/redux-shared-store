@@ -1,17 +1,18 @@
 import React from "react";
+import { combineReducers } from "redux";
 import { Provider } from "react-redux";
 
-import createStore from "./store";
-import inject from "./inject";
-import reducer from "./reducer";
-
-const store = createStore();
+import store from "./store";
 
 export const injectReducer = (key, reducer) => {
-  inject(store, key, reducer);
+  if (Object.hasOwnProperty.call(store.asyncReducers, key)) return;
+
+  store.asyncReducers[key] = reducer;
+  store.replaceReducer(
+    combineReducers({
+      ...store.asyncReducers
+    })
+  );
 };
 
-export default props => {
-  injectReducer("inject", reducer);
-  return <Provider store={store} {...props} />;
-};
+export default props => <Provider store={store} {...props} />;
