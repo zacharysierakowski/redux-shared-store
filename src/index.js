@@ -4,10 +4,17 @@ import { Provider } from "react-redux";
 
 import store from "./store";
 
-export const injectReducer = (key, reducer) => {
-  if (Object.hasOwnProperty.call(store.asyncReducers, key)) return;
+const addAsyncReducers = (key, reducers) => {
+  const asyncReducer = combineReducers({
+    ...reducers
+  });
+  store.asyncReducers[key] = asyncReducer;
+};
 
-  store.asyncReducers[key] = reducer;
+export const injectReducers = (key, reducers) => {
+  if (Object.hasOwnProperty.call(store.asyncReducers, key)) return;
+  addAsyncReducers(key, reducers);
+
   store.replaceReducer(
     combineReducers({
       ...store.asyncReducers
@@ -15,4 +22,9 @@ export const injectReducer = (key, reducer) => {
   );
 };
 
-export default props => <Provider store={store} {...props} />;
+export default props => {
+  if (props.reducers) {
+    injectReducers("root", props.reducers);
+  }
+  return <Provider store={store} {...props} />;
+};
