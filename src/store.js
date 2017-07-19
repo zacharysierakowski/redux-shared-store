@@ -1,25 +1,21 @@
-import {
-  applyMiddleware,
-  compose,
-  createStore as createReduxStore
-} from "redux";
+import { applyMiddleware, compose, createStore } from "redux";
 import thunk from "redux-thunk";
 
-const createStore = (initialState = {}) => {
+// creates a standard redux store with no reducers
+// with a reference to 'store.reducers' for dynamically attaching reducers to
+const createSharedStore = (initialState = {}) => {
   const middleware = [thunk];
   const enhancers = [];
-  let composeEnhancers = compose;
-
-  const store = createReduxStore(
+  const store = createStore(
     (state = {}) => state,
     initialState,
-    composeEnhancers(applyMiddleware(...middleware), ...enhancers)
+    compose(applyMiddleware(...middleware), ...enhancers)
   );
-  store.asyncReducers = {};
 
+  store.reducers = {};
   return store;
 };
 
-const store = createStore();
+const store = createSharedStore();
 
 export default store;

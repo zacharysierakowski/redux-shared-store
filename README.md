@@ -1,1 +1,1 @@
-## redux-shared-store
+# redux-shared-store

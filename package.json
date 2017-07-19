@@ -1,17 +1,15 @@
 {
   "name": "redux-shared-store",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "A redux store easily shared between components.",
   "author": "Zachary Sierakowski",
   "license": "MIT",
-  "main": "lib/index.js",
+  "main": "lib",
   "scripts": {
     "clean": "rimraf lib",
     "build": "webpack --progress --profile --colors"
   },
-  "files": [
-    "lib"
-  ],
+  "files": ["lib"],
   "peerDependencies": {
     "react": "^15.5.4",
     "react-redux": "^5.0.4",
@@ -32,5 +30,8 @@
     "redux-thunk": "^2.2.0",
     "rimraf": "^2.6.1",
     "webpack": "^3.2.0"
+  },
+  "dependencies": {
+    "object-path-set": "^1.0.0"
   }
 }
