@@ -1,12 +1,17 @@
 var webpack = require("webpack");
 var path = require("path");
+var fs = require("fs");
+
+const packageJSON = JSON.parse(
+  fs.readFileSync(path.resolve(__dirname, "package.json"), "utf8")
+);
 
 module.exports = {
   entry: ["./src/index.js"],
   output: {
     path: path.join(__dirname, "lib"),
     filename: "index.js",
-    library: "redux-shared-store",
+    library: packageJSON.name,
     libraryTarget: "umd"
   },
   resolve: {
