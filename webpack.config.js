@@ -1,20 +1,41 @@
 var webpack = require("webpack");
 var path = require("path");
+var fs = require("fs");
+
+const packageJSON = JSON.parse(
+  fs.readFileSync(path.resolve(__dirname, "package.json"), "utf8")
+);
+
+/* This can probably be improved upon using `reduce` */
+const externals = (function() {
+  const peerDependencies = packageJSON.peerDependencies;
+  const dependencies = packageJSON.dependencies;
+
+  const externals = {};
+  const set = function(_) {
+    Object.keys(_).map(function(dependency) {
+      externals[dependency] = dependency;
+    });
+  };
+
+  if (dependencies) set(dependencies);
+  if (peerDependencies) set(peerDependencies);
+
+  return externals;
+})();
 
 module.exports = {
   entry: ["./src/index.js"],
   output: {
     path: path.join(__dirname, "lib"),
     filename: "index.js",
-    library: "redux-shared-store",
+    library: packageJSON.name,
     libraryTarget: "umd"
   },
   resolve: {
     extensions: [".js", ".jsx"]
   },
-  externals: {
-    react: "react"
-  },
+  externals: externals,
   module: {
     loaders: [
       {
