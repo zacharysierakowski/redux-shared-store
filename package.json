@@ -1,6 +1,6 @@
 {
   "name": "redux-shared-store",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "A redux store easily shared between components.",
   "author": "Zachary Sierakowski",
   "license": "MIT",
