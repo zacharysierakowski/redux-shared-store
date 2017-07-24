@@ -6,11 +6,14 @@ var ExtractTextPlugin = require("extract-text-webpack-plugin");
 const HOST = process.env.HOST || "127.0.0.1";
 const PORT = process.env.PORT || "8080";
 
+const nodeEnv = process.env.NODE_ENV || "development";
+const isProduction = nodeEnv === "production";
+
 module.exports = {
   entry: ["react-hot-loader/patch", path.resolve(__dirname, "./src/index.js")],
   devtool: "eval-source-map",
   output: {
-    publicPath: "/",
+    publicPath: isProduction ? "./" : "/",
     path: path.join(__dirname, "dist"),
     filename: "bundle.js"
   },
