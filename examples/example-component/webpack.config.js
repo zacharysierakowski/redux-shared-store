@@ -27,7 +27,7 @@ module.exports = {
   module: {
     loaders: [
       {
-        test: /\.js?$/,
+        test: /\.js|.jsx?$/,
         exclude: /(node_modules|lib\/)/,
         loader: "babel-loader"
       }
@@ -36,17 +36,17 @@ module.exports = {
   plugins: [
     new webpack.DefinePlugin({
       "process.env": {
-        NODE_ENV: '"production"'
+        NODE_ENV: '"development"'
       }
-    }),
-    new webpack.optimize.UglifyJsPlugin({
-      compress: {
-        warnings: false,
-        screw_ie8: true,
-        drop_console: true,
-        drop_debugger: true
-      }
-    }),
-    new webpack.optimize.OccurrenceOrderPlugin()
+    })
+    // new webpack.optimize.UglifyJsPlugin({
+    //   compress: {
+    //     warnings: false,
+    //     screw_ie8: true,
+    //     drop_console: true,
+    //     drop_debugger: true
+    //   }
+    // }),
+    // new webpack.optimize.OccurrenceOrderPlugin()
   ]
 };
