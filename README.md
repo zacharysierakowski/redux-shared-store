@@ -1,6 +1,6 @@
 # redux-shared-store
 
-A redux provider that easily allows for injecting reducers dynamically and sharing a redux store across components.
+A redux provider that easily allows for injecting reducers dynamically and sharing a redux store across components. See an example application using the `redux-shared-store`, and a component (that uses the shared store itself) [here](https://zachary-sierakowski.github.io/redux-shared-store/).
 
 ## Usage
 
