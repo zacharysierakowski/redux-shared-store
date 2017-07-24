@@ -1,7 +1,8 @@
 import React from "react";
 import { combineReducers } from "redux";
 import { Provider } from "react-redux";
-import set from "object-path-set";
+import hasKeyPath from "lodash.has";
+import setKeyPath from "lodash.set";
 import store from "./store";
 import dynamicMiddleware from "./middleware";
 
@@ -28,9 +29,15 @@ const combineAllReducers = reducers => {
    - callback?: Function
 */
 export const injectReducers = (keyPath, reducers, callback) => {
-  store.reducers = set(store.reducers, keyPath, reducers);
+  // if the reducers are already there, return or callback
+  if (hasKeyPath(store.reducers, keyPath)) {
+    if (callback) return callback(false);
+    return;
+  }
+
+  store.reducers = setKeyPath(store.reducers, keyPath, reducers);
   store.replaceReducer(combineAllReducers(store.reducers));
-  if (callback) return callback();
+  if (callback) return callback(true);
 };
 
 /*

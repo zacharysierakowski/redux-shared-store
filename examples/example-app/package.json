@@ -1,7 +1,7 @@
 {
-  "name": "redux-shared-store-example",
+  "name": "example-app",
   "version": "0.0.1",
-  "description": "An example using redux-shared-store",
+  "description": "An example application using redux-shared-store",
   "author": "Zachary Sierakowski",
   "license": "MIT",
   "main": "index.js",
@@ -14,8 +14,10 @@
     "react-dom": "^15.5.4",
     "react-redux": "^5.0.4",
     "redux": "^3.6.0",
-    "redux-shared-store": "^0.0.3",
-    "redux-thunk": "^2.2.0"
+    "redux-logger": "^3.0.6",
+    "redux-shared-store": "^0.0.8",
+    "redux-thunk": "^2.2.0",
+    "shared-redux-store-example-component": "^0.0.9"
   },
   "devDependencies": {
     "babel-core": "^6.23.1",
@@ -30,6 +32,7 @@
     "css-loader": "0.26.1",
     "extract-text-webpack-plugin": "^3.0.0",
     "html-webpack-plugin": "^2.29.0",
+    "loglevel": "^1.4.1",
     "postcss-loader": "^1.2.2",
     "react-hot-loader": "next",
     "rimraf": "^2.6.1",

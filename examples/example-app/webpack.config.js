@@ -1,7 +1,5 @@
-"use strict";
 var webpack = require("webpack");
 var path = require("path");
-var loaders = require("./webpack.loaders");
 var HtmlWebpackPlugin = require("html-webpack-plugin");
 var ExtractTextPlugin = require("extract-text-webpack-plugin");
 
@@ -9,10 +7,7 @@ const HOST = process.env.HOST || "127.0.0.1";
 const PORT = process.env.PORT || "8080";
 
 module.exports = {
-  entry: [
-    "react-hot-loader/patch",
-    path.resolve(__dirname, "./src/index.jsx") // your app's entry point
-  ],
+  entry: ["react-hot-loader/patch", path.resolve(__dirname, "./src/index.js")],
   devtool: "eval-source-map",
   output: {
     publicPath: "/",
@@ -23,7 +18,13 @@ module.exports = {
     extensions: [".js", ".jsx"]
   },
   module: {
-    loaders
+    loaders: [
+      {
+        test: /\.js|.jsx?$/,
+        exclude: /(node_modules|dist\/)/,
+        loader: "babel-loader"
+      }
+    ]
   },
   devServer: {
     contentBase: ".",
