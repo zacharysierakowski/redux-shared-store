@@ -1,6 +1,6 @@
 {
   "name": "shared-redux-store-example-component",
-  "version": "0.0.9",
+  "version": "0.1.0",
   "description": "An example component using redux-shared-store",
   "author": "Zachary Sierakowski",
   "license": "MIT",
@@ -9,12 +9,14 @@
     "clean": "rimraf lib",
     "build": "webpack --progress --profile --colors"
   },
-  "files": ["lib"],
+  "files": [
+    "lib"
+  ],
   "peerDependencies": {
     "react": "^15.5.4",
     "react-redux": "^5.0.4",
     "redux": "^3.6.0",
-    "redux-shared-store": "^0.0.8"
+    "redux-shared-store": "^0.1.0"
   },
   "devDependencies": {
     "babel-core": "^6.23.1",
@@ -28,7 +30,7 @@
     "react": "^15.5.4",
     "react-redux": "^5.0.4",
     "redux": "^3.6.0",
-    "redux-shared-store": "^0.0.8",
+    "redux-shared-store": "^0.1.0",
     "rimraf": "^2.6.1",
     "webpack": "^3.2.0"
   }

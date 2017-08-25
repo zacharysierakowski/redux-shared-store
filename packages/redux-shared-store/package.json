@@ -1,0 +1,39 @@
+{
+  "name": "redux-shared-store",
+  "version": "0.1.0",
+  "description": "A redux store easily shared between components.",
+  "author": "Zachary Sierakowski",
+  "license": "MIT",
+  "main": "lib",
+  "scripts": {
+    "clean": "rimraf lib",
+    "build": "webpack --progress --profile --colors"
+  },
+  "files": [
+    "lib"
+  ],
+  "peerDependencies": {
+    "react": "^15.5.4",
+    "react-redux": "^5.0.4",
+    "redux": "^3.6.0"
+  },
+  "devDependencies": {
+    "babel-core": "^6.23.1",
+    "babel-loader": "^6.3.2",
+    "babel-plugin-transform-class-properties": "^6.24.1",
+    "babel-plugin-transform-object-rest-spread": "^6.23.0",
+    "babel-plugin-transform-runtime": "^6.22.0",
+    "babel-preset-es2015": "6.22.0",
+    "babel-preset-react": "^6.23.0",
+    "babel-runtime": "^6.22.0",
+    "react": "^15.5.4",
+    "react-redux": "^5.0.4",
+    "redux": "^3.6.0",
+    "rimraf": "^2.6.1",
+    "webpack": "^3.2.0"
+  },
+  "dependencies": {
+    "lodash.has": "^4.5.2",
+    "lodash.set": "^4.3.2"
+  }
+}
