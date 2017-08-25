@@ -3,8 +3,10 @@ import { combineReducers } from "redux";
 import { Provider } from "react-redux";
 import hasKeyPath from "lodash.has";
 import setKeyPath from "lodash.set";
-import store from "./store";
+import { createStore } from "./store";
 import dynamicMiddleware from "./middleware";
+
+let _store = null;
 
 /*
   Recursively iterates through the reducers object and combines each Redux
@@ -30,13 +32,13 @@ const combineAllReducers = reducers => {
 */
 export const injectReducers = (keyPath, reducers, callback) => {
   // if the reducers are already there, return or callback
-  if (hasKeyPath(store.reducers, keyPath)) {
+  if (hasKeyPath(_store.reducers, keyPath)) {
     if (callback) return callback(false);
     return;
   }
 
-  store.reducers = setKeyPath(store.reducers, keyPath, reducers);
-  store.replaceReducer(combineAllReducers(store.reducers));
+  _store.reducers = setKeyPath(_store.reducers, keyPath, reducers);
+  _store.replaceReducer(combineAllReducers(_store.reducers));
   if (callback) return callback(true);
 };
 
@@ -54,11 +56,12 @@ export const injectMiddleware = (middleware, callback) => {
 /*
   <Provider reducers={Object} middleware={Array<middleware>} />
 */
-export default ({ reducers, middleware, ...props }) => {
+export default ({ store, reducers, middleware, ...props }) => {
+  _store = store ? store : createStore();
   if (middleware) dynamicMiddleware.add(...middleware);
   if (reducers) {
-    store.reducers = reducers;
-    store.replaceReducer(combineAllReducers(reducers));
+    _store.reducers = reducers;
+    _store.replaceReducer(combineAllReducers(reducers));
   }
-  return <Provider store={store} {...props} />;
+  return <Provider store={_store} {...props} />;
 };
