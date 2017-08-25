@@ -1,4 +1,4 @@
-import { applyMiddleware, compose, createStore } from "redux";
+import { applyMiddleware, compose, createStore as reduxCreateStore } from "redux";
 import dynamicMiddleware from "./middleware";
 
 export const createStore = (
@@ -6,7 +6,7 @@ export const createStore = (
   middleware = [],
   enhancers = []
 ) => {
-  const store = createStore(
+  const store = reduxCreateStore(
     (state = {}) => state,
     initialState,
     compose(
