@@ -11,6 +11,7 @@ node_js:
   - '4'
 before_script:
   - lerna run clean
+  - lerna bootstrap
 script:
   - lerna run build
 after_success:
