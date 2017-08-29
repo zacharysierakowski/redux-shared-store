@@ -3583,9 +3583,9 @@ redux-logger@^3.0.6:
   dependencies:
     deep-diff "^0.3.5"
 
-redux-shared-store@^0.0.8:
-  version "0.0.8"
-  resolved "https://registry.yarnpkg.com/redux-shared-store/-/redux-shared-store-0.0.8.tgz#06726da42ca876cd4728ead224e881865911bfb5"
+redux-shared-store@^0.1.0:
+  version "0.1.0"
+  resolved "https://registry.yarnpkg.com/redux-shared-store/-/redux-shared-store-0.1.0.tgz#9e20b0f946cb64fbc9df4a0d4191336bbc2ac342"
   dependencies:
     lodash.has "^4.5.2"
     lodash.set "^4.3.2"
@@ -3835,9 +3835,9 @@ sha.js@^2.4.0, sha.js@^2.4.8:
   dependencies:
     inherits "^2.0.1"
 
-shared-redux-store-example-component@^0.0.9:
-  version "0.0.9"
-  resolved "https://registry.yarnpkg.com/shared-redux-store-example-component/-/shared-redux-store-example-component-0.0.9.tgz#fc19f44b842d39344784f404aabb460591f9cb4f"
+shared-redux-store-example-component@^0.1.0:
+  version "0.1.0"
+  resolved "https://registry.yarnpkg.com/shared-redux-store-example-component/-/shared-redux-store-example-component-0.1.0.tgz#91e866e6afd2b5f5e8744436895e30ee28c64145"
 
 signal-exit@^3.0.0:
   version "3.0.2"

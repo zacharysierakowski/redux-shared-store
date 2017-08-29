@@ -17,9 +17,9 @@
     "react-redux": "^5.0.4",
     "redux": "^3.6.0",
     "redux-logger": "^3.0.6",
-    "redux-shared-store": "^0.0.8",
+    "redux-shared-store": "*",
     "redux-thunk": "^2.2.0",
-    "shared-redux-store-example-component": "^0.0.9"
+    "shared-redux-store-example-component": "*"
   },
   "devDependencies": {
     "babel-core": "^6.23.1",

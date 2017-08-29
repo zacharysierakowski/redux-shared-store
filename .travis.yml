@@ -6,15 +6,16 @@ cache:
 notifications:
   email: false
 node_js:
-  - node
   - '7'
   - '6'
+  - '4'
+before_script:
+  - lerna run clean
+  - lerna bootstrap
 script:
-#   - yarn test
-  - yarn build
-# after_success:
-#   - yarn semantic-release
+  - lerna run build
+after_success:
+  - lerna run semantic-release
 branches:
   only:
     - master
-    - /^greenkeeper/.*$/
