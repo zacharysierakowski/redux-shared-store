@@ -1,13 +1,18 @@
 {
   "name": "redux-shared-store",
   "version": "0.1.0",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/zachary-sierakowski/redux-shared-store.git"
+  },
   "description": "A redux store easily shared between components.",
   "author": "Zachary Sierakowski",
   "license": "MIT",
   "main": "lib",
   "scripts": {
     "clean": "rimraf lib",
-    "build": "webpack --progress --profile --colors"
+    "build": "webpack --progress --profile --colors",
+    "semantic-release": "semantic-release pre && npm publish && semantic-release post"
   },
   "files": [
     "lib"
@@ -30,6 +35,7 @@
     "react-redux": "^5.0.4",
     "redux": "^3.6.0",
     "rimraf": "^2.6.1",
+    "semantic-release": "^7.0.2",
     "webpack": "^3.2.0"
   },
   "dependencies": {
