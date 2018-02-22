@@ -1,6 +1,8 @@
 # redux-shared-store
 
-A redux provider that easily allows for injecting reducers dynamically and sharing a redux store across components. See an example application using the `redux-shared-store`, and a component (that uses the shared store itself) [here](https://zachary-sierakowski.github.io/redux-shared-store/).
+A redux provider that easily allows for injecting reducers dynamically and sharing a redux store across components.
+
+[![Build Status](https://travis-ci.org/zachary-sierakowski/redux-shared-store.svg?branch=master)](https://travis-ci.org/zachary-sierakowski/redux-shared-store) [![Commitizen friendly](https://img.shields.io/badge/commitizen-friendly-brightgreen.svg)](http://commitizen.github.io/cz-cli/) [![styled with prettier](https://img.shields.io/badge/styled_with-prettier-ff69b4.svg)](https://github.com/prettier/prettier)  [![semantic-release](https://img.shields.io/badge/%F0%9F%93%A6%F0%9F%9A%80-semantic--release-e10079.svg)](https://github.com/semantic-release/semantic-release)
 
 ## Usage
 
