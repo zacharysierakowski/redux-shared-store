@@ -6,16 +6,11 @@ cache:
 notifications:
   email: false
 node_js:
-  - '7'
-  - '6'
-  - '4'
-before_script:
-  - lerna run clean
-  - lerna bootstrap
+  - '8'
 script:
-  - lerna run build
+  - yarn build
 after_success:
-  - lerna run semantic-release
+  - yarn semantic-release
 branches:
   only:
     - master

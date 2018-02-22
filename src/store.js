@@ -1,4 +1,8 @@
-import { applyMiddleware, compose, createStore as reduxCreateStore } from "redux";
+import {
+  applyMiddleware,
+  compose,
+  createStore as reduxCreateStore
+} from "redux";
 import dynamicMiddleware from "./middleware";
 
 export const createStore = (
