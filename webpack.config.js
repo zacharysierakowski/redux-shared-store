@@ -1,6 +1,7 @@
-var webpack = require("webpack");
-var path = require("path");
 var fs = require("fs");
+var path = require("path");
+var webpack = require("webpack");
+var CleanWebpackPlugin = require("clean-webpack-plugin");
 
 const packageJSON = JSON.parse(
   fs.readFileSync(path.resolve(__dirname, "package.json"), "utf8")
@@ -34,6 +35,7 @@ module.exports = {
     ]
   },
   plugins: [
+    new CleanWebpackPlugin("lib"),
     new webpack.DefinePlugin({
       "process.env": {
         NODE_ENV: '"production"'
