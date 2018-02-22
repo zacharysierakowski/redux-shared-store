@@ -20,6 +20,20 @@
     "commitmsg": "validate-commit-msg",
     "semantic-release": "semantic-release"
   },
+  "lint-staged": {
+    "*.js": [
+      "prettier --write",
+      "git add"
+    ]
+  },
+  "config": {
+    "commitizen": {
+      "path": "cz-conventional-changelog"
+    },
+    "validate-commit-msg": {
+      "helpMessage": "\nPlease use `yarn cz` to commit your changes"
+    }
+  },
   "peerDependencies": {
     "react": "^15.5.4",
     "react-redux": "^5.0.4",
